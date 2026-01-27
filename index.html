@@ -48,6 +48,11 @@
       font-size: 1.8rem;
     }
 
+    h3 {
+      margin-top: 0;
+      font-size: 1.3rem;
+    }
+
     p {
       color: var(--muted);
     }
@@ -59,6 +64,18 @@
 
     .hero {
       animation: fadeUp 1s ease;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .hero img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
     }
 
     .badges span {
@@ -126,6 +143,18 @@
         transform: translateY(0);
       }
     }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero img {
+        margin-bottom: 20px;
+      }
+    }
   </style>
 </head>
 
@@ -134,18 +163,26 @@
 
     <!-- HERO -->
     <section class="hero">
-      <h1>Shubham Pawar</h1>
-      <p>
-        AI / DevOps Engineer · Open Source Builder · Founder of <strong>Hypertic.ai</strong>
-      </p>
+      <!-- Photo -->
+      <div>
+        <img src="LINKEDIN_PHOTO_URL" alt="Shubham Pawar">
+      </div>
 
-      <div class="badges">
-        <span>AI Agents</span>
-        <span>MCP</span>
-        <span>LLMs</span>
-        <span>Python</span>
-        <span>DevOps</span>
-        <span>Open Source</span>
+      <!-- Text & Badges -->
+      <div>
+        <h1>Shubham Pawar</h1>
+        <p>
+          AI / DevOps Engineer · Open Source Builder · Founder of <strong>Hypertic.ai</strong>
+        </p>
+
+        <div class="badges">
+          <span>AI Agents</span>
+          <span>MCP</span>
+          <span>LLMs</span>
+          <span>Python</span>
+          <span>DevOps</span>
+          <span>Open Source</span>
+        </div>
       </div>
     </section>
 
@@ -164,6 +201,21 @@
       </p>
     </section>
 
+    <!-- EXPERIENCE -->
+    <section>
+      <h2>Experience</h2>
+      <p>
+        4+ years of professional experience in building and deploying cloud-native applications and DevOps pipelines. Skilled in:
+      </p>
+      <ul style="color: var(--muted);">
+        <li>AWS (EC2, S3, Lambda, IAM, CloudFormation)</li>
+        <li>Terraform Infrastructure as Code</li>
+        <li>Docker & Kubernetes (K8s) deployments</li>
+        <li>Java & Spring Boot application development</li>
+        <li>CI/CD pipelines, automation, and cloud architecture</li>
+      </ul>
+    </section>
+
     <!-- PROJECTS -->
     <section>
       <h2>Featured Project</h2>
@@ -176,7 +228,8 @@
             MCP support, tool calling, memory, and clean abstractions.
           </p>
           <p>
-            🔗 <a href="https://www.producthunt.com/products/hypertic-ai" target="_blank">Product Hunt</a>
+            🔗 <a href="https://www.producthunt.com/products/hypertic-ai" target="_blank">Product Hunt</a> | 
+            🌐 <a href="https://hypertic.ai" target="_blank">Visit Website</a>
           </p>
         </div>
       </div>
