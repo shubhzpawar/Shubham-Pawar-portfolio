@@ -9,25 +9,27 @@
   <meta name="description" content="Shubham Pawar – AI / DevOps Engineer, Co-founder of Hypertic.ai, building lightweight AI agent frameworks." />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0b1020;
-      --card: #11172b;
+      --bg: #0f111a;
+      --card: #1c1f2a;
       --primary: #38bdf8;
       --text: #e5e7eb;
-      --muted: #94a3b8;
+      --muted: #a1a8c0;
+      --shadow: rgba(0, 0, 0, 0.5);
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(180deg, #020617, #0b1020);
+      background-color: var(--bg);
       color: var(--text);
       line-height: 1.7;
     }
@@ -35,26 +37,33 @@
     .container {
       max-width: 1000px;
       margin: auto;
-      padding: 60px 20px;
+      padding: 40px 20px;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
+      font-weight: 700;
       margin-bottom: 10px;
+      color: var(--text);
     }
 
     h2 {
+      font-size: 2rem;
       margin-top: 60px;
-      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--text);
     }
 
     h3 {
-      margin-top: 0;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: var(--text);
     }
 
     p {
       color: var(--muted);
+      margin-bottom: 16px;
     }
 
     a {
@@ -63,7 +72,6 @@
     }
 
     .hero {
-      animation: fadeUp 1s ease;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -72,58 +80,68 @@
     }
 
     .hero img {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       border: 3px solid var(--primary);
+      object-fit: cover;
+      box-shadow: 0 8px 20px var(--shadow);
     }
 
     .badges span {
       display: inline-block;
-      background: rgba(56,189,248,0.1);
+      background: rgba(56,189,248,0.15);
       color: var(--primary);
-      padding: 6px 12px;
+      padding: 6px 14px;
       border-radius: 999px;
       margin: 6px 6px 0 0;
       font-size: 14px;
+      font-weight: 500;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
       margin-top: 30px;
     }
 
     .card {
       background: var(--card);
-      padding: 24px;
+      padding: 28px;
       border-radius: 16px;
+      box-shadow: 0 6px 20px var(--shadow);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      box-shadow: 0 14px 30px var(--shadow);
     }
 
     .cta {
       margin-top: 60px;
-      padding: 40px;
+      padding: 50px;
       border-radius: 20px;
       background: linear-gradient(135deg, #0ea5e9, #38bdf8);
-      color: #020617;
+      color: #0f111a;
       text-align: center;
     }
 
     .cta a {
       display: inline-block;
       margin-top: 16px;
-      background: #020617;
+      background: #0f111a;
       color: white;
-      padding: 12px 22px;
-      border-radius: 10px;
+      padding: 14px 28px;
+      border-radius: 12px;
       font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px var(--shadow);
     }
 
     footer {
@@ -133,27 +151,44 @@
       font-size: 14px;
     }
 
+    ul {
+      margin-left: 20px;
+      list-style-type: disc;
+      margin-bottom: 16px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
     }
 
     /* Responsive adjustments */
-    @media (max-width: 600px) {
+    @media (max-width: 900px) {
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.8rem; }
+      h3 { font-size: 1.2rem; }
+      .hero img { width: 140px; height: 140px; }
+    }
+
+    @media (max-width: 700px) {
       .hero {
         flex-direction: column;
         text-align: center;
       }
+      .hero img { margin-bottom: 20px; }
+    }
 
-      .hero img {
-        margin-bottom: 20px;
-      }
+    @media (max-width: 480px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.6rem; }
+      h3 { font-size: 1.1rem; }
+      .cta { padding: 35px 20px; }
+      .cta a { padding: 12px 22px; }
+      .container { padding: 30px 15px; }
     }
   </style>
 </head>
@@ -163,18 +198,12 @@
 
     <!-- HERO -->
     <section class="hero">
-      <!-- Photo -->
       <div>
         <img src="68F6E971-73A7-4662-9F57-A08E8F357C2C.png" alt="Shubham Pawar">
       </div>
-
-      <!-- Text & Badges -->
       <div>
         <h1>Shubham Pawar</h1>
-        <p>
-          AI / DevOps Engineer · Open Source Builder · Founder of <strong>Hypertic.ai</strong>
-        </p>
-
+        <p>AI / DevOps Engineer · Open Source Builder · Founder of <strong>Hypertic.ai</strong></p>
         <div class="badges">
           <span>AI Agents</span>
           <span>MCP</span>
@@ -189,25 +218,15 @@
     <!-- ABOUT -->
     <section>
       <h2>About</h2>
-      <p>
-        I build practical, production-ready AI systems with a strong focus on
-        developer experience. I enjoy simplifying complex architectures and
-        creating tools that engineers actually enjoy using.
-      </p>
-      <p>
-        Currently, I’m building <strong>Hypertic.ai</strong> — a lightweight,
-        open-source Python framework that helps developers build AI agents
-        without heavy abstractions.
-      </p>
+      <p>I build practical, production-ready AI systems with a strong focus on developer experience. I enjoy simplifying complex architectures and creating tools that engineers actually enjoy using.</p>
+      <p>Currently, I’m building <strong>Hypertic.ai</strong> — a lightweight, open-source Python framework that helps developers build AI agents without heavy abstractions.</p>
     </section>
 
     <!-- EXPERIENCE -->
     <section>
       <h2>Experience</h2>
-      <p>
-        4+ years of professional experience in building and deploying cloud-native applications and DevOps pipelines. Skilled in:
-      </p>
-      <ul style="color: var(--muted);">
+      <p>4+ years of professional experience building and deploying cloud-native applications and DevOps pipelines. Skilled in:</p>
+      <ul>
         <li>AWS (EC2, S3, Lambda, IAM, CloudFormation)</li>
         <li>Terraform Infrastructure as Code</li>
         <li>Docker & Kubernetes (K8s) deployments</li>
@@ -219,18 +238,11 @@
     <!-- PROJECTS -->
     <section>
       <h2>Featured Project</h2>
-
       <div class="cards">
         <div class="card">
           <h3>Hypertic.ai</h3>
-          <p>
-            A lightweight open-source framework for building AI agents with
-            MCP support, tool calling, memory, and clean abstractions.
-          </p>
-          <p>
-            🔗 <a href="https://www.producthunt.com/products/hypertic-ai" target="_blank">Product Hunt</a> | 
-            🌐 <a href="https://hypertic.ai" target="_blank">Visit Website</a>
-          </p>
+          <p>A lightweight open-source framework for building AI agents with MCP support, tool calling, memory, and clean abstractions.</p>
+          <p>🔗 <a href="https://www.producthunt.com/products/hypertic-ai" target="_blank">Product Hunt</a> | 🌐 <a href="https://hypertic.ai" target="_blank">Visit Website</a></p>
         </div>
       </div>
     </section>
@@ -239,15 +251,12 @@
     <section class="cta">
       <h2>Let’s Connect</h2>
       <p>Interested in AI agents, open source, or developer tools?</p>
-      <a href="https://www.linkedin.com/in/shoobham-pawar" target="_blank">
-        Connect on LinkedIn
-      </a>
+      <a href="https://www.linkedin.com/in/shoobham-pawar" target="_blank">Connect on LinkedIn</a>
     </section>
 
     <footer>
       © 2026 Shubham Pawar · Built with passion · Hosted on GitHub Pages
     </footer>
-
   </div>
 </body>
 </html>
