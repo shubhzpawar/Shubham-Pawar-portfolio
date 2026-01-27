@@ -3,53 +3,128 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shubham Pawar | Builder of Hypertic.ai</title>
+  <title>Shubham Pawar | AI Engineer & Open Source Builder</title>
 
   <!-- SEO -->
-  <meta name="description" content="Shubham Pawar – AI / DevOps Engineer and builder of Hypertic.ai, a lightweight open-source framework for building AI agents." />
-  <meta name="keywords" content="Shubham Pawar, Hypertic.ai, AI Agents, MCP, LLM, DevOps, Open Source" />
+  <meta name="description" content="Shubham Pawar – AI / DevOps Engineer, founder of Hypertic.ai, building lightweight AI agent frameworks." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #0b1020;
+      --card: #11172b;
+      --primary: #38bdf8;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen;
       margin: 0;
-      background: #0f172a;
-      color: #e5e7eb;
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #020617, #0b1020);
+      color: var(--text);
+      line-height: 1.7;
     }
+
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
-    h1, h2 {
-      color: #f8fafc;
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
     }
+
+    h2 {
+      margin-top: 60px;
+      font-size: 1.8rem;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
     a {
-      color: #38bdf8;
+      color: var(--primary);
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .hero {
+      animation: fadeUp 1s ease;
     }
-    .badge {
+
+    .badges span {
       display: inline-block;
-      background: #1e293b;
+      background: rgba(56,189,248,0.1);
+      color: var(--primary);
       padding: 6px 12px;
-      border-radius: 20px;
-      margin-right: 8px;
+      border-radius: 999px;
+      margin: 6px 6px 0 0;
       font-size: 14px;
     }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
     .card {
-      background: #020617;
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 20px;
+      background: var(--card);
+      padding: 24px;
+      border-radius: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    footer {
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .cta {
       margin-top: 60px;
+      padding: 40px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      color: #020617;
+      text-align: center;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 16px;
+      background: #020617;
+      color: white;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: 80px;
+      text-align: center;
+      color: var(--muted);
       font-size: 14px;
-      color: #94a3b8;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -58,69 +133,66 @@
   <div class="container">
 
     <!-- HERO -->
-    <h1>Shubham Pawar</h1>
-    <p>
-      AI / DevOps Engineer • Open-Source Builder • Founder of
-      <strong>Hypertic.ai</strong>
-    </p>
+    <section class="hero">
+      <h1>Shubham Pawar</h1>
+      <p>
+        AI / DevOps Engineer · Open Source Builder · Founder of <strong>Hypertic.ai</strong>
+      </p>
 
-    <div>
-      <span class="badge">AI Agents</span>
-      <span class="badge">MCP</span>
-      <span class="badge">LLMs</span>
-      <span class="badge">Open Source</span>
-      <span class="badge">DevOps</span>
-    </div>
+      <div class="badges">
+        <span>AI Agents</span>
+        <span>MCP</span>
+        <span>LLMs</span>
+        <span>Python</span>
+        <span>DevOps</span>
+        <span>Open Source</span>
+      </div>
+    </section>
 
     <!-- ABOUT -->
-    <div class="card">
-      <h2>About Me</h2>
+    <section>
+      <h2>About</h2>
       <p>
-        I’m a software engineer focused on building practical, production-ready
-        AI systems. I enjoy working at the intersection of AI agents, developer
-        tooling, and DevOps.
+        I build practical, production-ready AI systems with a strong focus on
+        developer experience. I enjoy simplifying complex architectures and
+        creating tools that engineers actually enjoy using.
       </p>
       <p>
-        I’m currently building <strong>Hypertic.ai</strong> — a lightweight,
-        open-source Python framework designed to help developers build AI agents
-        without unnecessary abstractions.
+        Currently, I’m building <strong>Hypertic.ai</strong> — a lightweight,
+        open-source Python framework that helps developers build AI agents
+        without heavy abstractions.
       </p>
-    </div>
+    </section>
 
-    <!-- PROJECT -->
-    <div class="card">
+    <!-- PROJECTS -->
+    <section>
       <h2>Featured Project</h2>
-      <h3>Hypertic.ai</h3>
-      <p>
-        Hypertic is a lightweight, open-source framework for building AI agents
-        with clean abstractions, MCP support, and model-agnostic design.
-      </p>
-      <p>
-        🔗 <a href="https://www.producthunt.com/products/hypertic-ai" target="_blank">
-          View on Product Hunt
-        </a>
-      </p>
-    </div>
 
-    <!-- CONTACT -->
-    <div class="card">
-      <h2>Connect</h2>
-      <p>
-        💼 LinkedIn:
-        <a href="https://www.linkedin.com/in/shoobham-pawar" target="_blank">
-          linkedin.com/in/shoobham-pawar
-        </a>
-      </p>
-      <p>
-        🧑‍💻 GitHub: <em>(add your GitHub link here)</em>
-      </p>
-      <p>
-        📧 Email: <em>(add email if you want)</em>
-      </p>
-    </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Hypertic.ai</h3>
+          <p>
+            A lightweight open-source framework for building AI agents with
+            MCP support, tool calling, memory, and clean abstractions.
+          </p>
+          <p>
+            🔗 <a href="https://www.producthunt.com/products/hypertic-ai" target="_blank">Product Hunt</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONNECT -->
+    <section class="cta">
+      <h2>Let’s Connect</h2>
+      <p>Interested in AI agents, open source, or developer tools?</p>
+      <a href="https://www.linkedin.com/in/shoobham-pawar" target="_blank">
+        Connect on LinkedIn
+      </a>
+    </section>
 
     <footer>
-      © 2026 Shubham Pawar • Built with ❤️ and hosted for free
+      © 2026 Shubham Pawar · Built with passion · Hosted on GitHub Pages
     </footer>
 
   </div>
