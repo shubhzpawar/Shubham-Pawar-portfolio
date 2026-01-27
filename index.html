@@ -10,29 +10,31 @@
 
   <style>
     :root {
-      /* Dark Mode Defaults - Green-Blue Gradient Theme */
-      --bg: linear-gradient(135deg, #4ade80, #22d3ee);
-      --card: rgba(255, 255, 255, 0.05);
-      --primary: #ffffff;
-      --text: #0f111a;
-      --muted: rgba(15,17,26,0.8);
-      --shadow: rgba(0, 0, 0, 0.3);
+      /* Dark Mode Defaults */
+      --bg: #0d1117; /* deep dark background */
+      --card: #161b27; /* slightly lighter for cards */
+      --primary: #38bdf8; /* bright accent */
+      --text: #e5e7eb; /* light text */
+      --muted: #94a3b8; /* muted text */
+      --shadow: rgba(0, 0, 0, 0.5);
+      --badge-bg: rgba(56,189,248,0.15);
     }
 
     body.light-mode {
-      --bg: linear-gradient(135deg, #4ade80, #22d3ee);
-      --card: rgba(255, 255, 255, 0.3);
-      --primary: #0f111a;
-      --text: #0f111a;
-      --muted: rgba(15,17,26,0.7);
+      --bg: #f5f5f5;
+      --card: #ffffff;
+      --primary: #3b82f6;
+      --text: #1f2937;
+      --muted: #6b7280;
       --shadow: rgba(0, 0, 0, 0.15);
+      --badge-bg: rgba(59,130,246,0.15);
     }
 
     * { box-sizing: border-box; margin:0; padding:0; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg);
+      background-color: var(--bg);
       color: var(--text);
       line-height: 1.7;
       transition: background 0.5s ease, color 0.5s ease;
@@ -40,17 +42,18 @@
 
     .container { max-width: 1000px; margin:auto; padding:40px 20px; }
 
-    h1{font-size:2.5rem;font-weight:700;margin-bottom:10px;}
-    h2{font-size:2rem;margin-top:60px;font-weight:600;}
+    h1{font-size:2.8rem;font-weight:700;margin-bottom:10px; color: var(--primary);}
+    h2{font-size:2rem;margin-top:60px;font-weight:600; color: var(--primary);}
     h3{font-size:1.4rem;font-weight:500;margin-bottom:10px;}
     p{color:var(--muted);margin-bottom:16px;}
-    a{color:var(--primary);text-decoration:none;}
+    a{color:var(--primary);text-decoration:none; transition: 0.2s;}
+    a:hover {opacity:0.8;}
 
-    .hero { display:flex; flex-wrap:wrap; align-items:center; gap:30px; margin-bottom:40px; }
+    .hero { display:flex; flex-wrap:wrap; align-items:center; gap:30px; margin-bottom:50px; }
     .hero img { width:160px; height:160px; border-radius:50%; border:3px solid var(--primary); object-fit:cover; box-shadow:0 8px 20px var(--shadow); }
 
     .badges span {
-      display:inline-block; background: rgba(255,255,255,0.2); color:var(--primary);
+      display:inline-block; background: var(--badge-bg); color:var(--primary);
       padding:6px 14px; border-radius:999px; margin:6px 6px 0 0; font-size:14px; font-weight:500;
     }
 
@@ -63,17 +66,18 @@
       margin-top: 60px;
       padding: 50px;
       border-radius: 20px;
-      background: linear-gradient(135deg, #4ade80, #22d3ee);
-      color: #0f111a;
+      background: var(--card);
+      color: var(--text);
       text-align: center;
+      box-shadow: 0 6px 20px var(--shadow);
       transition: background 0.5s ease, color 0.5s ease;
     }
 
     .cta a {
       display: inline-block;
       margin-top: 16px;
-      background: #0f111a;
-      color: #ffffff;
+      background: var(--primary);
+      color: #0d1117;
       padding: 14px 28px;
       border-radius: 12px;
       font-weight: 600;
@@ -83,7 +87,7 @@
     .cta a:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px var(--shadow);
-      background: #1f2937;
+      opacity:0.9;
     }
 
     footer { margin-top:80px; text-align:center; color:var(--muted); font-size:14px; }
@@ -94,7 +98,7 @@
     /* Toggle Button */
     .toggle-btn {
       position: fixed; top: 20px; right: 20px; z-index:1000;
-      padding:10px 16px; border-radius:8px; background: rgba(255,255,255,0.2);
+      padding:10px 16px; border-radius:8px; background: var(--card);
       color:var(--primary); cursor:pointer; font-weight:600; border:none;
       box-shadow:0 4px 12px var(--shadow); transition: background 0.3s, color 0.3s;
       font-size:18px;
@@ -102,7 +106,7 @@
     .toggle-btn:hover { opacity:0.9; }
 
     /* Responsive */
-    @media (max-width:900px) { h1{font-size:2.2rem;} h2{font-size:1.8rem;} h3{font-size:1.2rem;} .hero img{width:140px;height:140px;} }
+    @media (max-width:900px) { h1{font-size:2.4rem;} h2{font-size:1.8rem;} h3{font-size:1.2rem;} .hero img{width:140px;height:140px;} }
     @media (max-width:700px) { .hero { flex-direction:column; text-align:center; } .hero img { margin-bottom:20px; } }
     @media (max-width:480px) { h1{font-size:2rem;} h2{font-size:1.6rem;} h3{font-size:1.1rem;} .cta{padding:35px 20px;} .cta a{padding:12px 22px;} .container{padding:30px 15px;} }
   </style>
@@ -182,9 +186,9 @@
     function toggleMode() {
       document.body.classList.toggle('light-mode');
       if(document.body.classList.contains('light-mode')) {
-        toggleBtn.textContent = '☀️'; // Sun icon for light mode
+        toggleBtn.textContent = '☀️'; // Sun icon
       } else {
-        toggleBtn.textContent = '🌙'; // Moon icon for dark mode
+        toggleBtn.textContent = '🌙'; // Moon icon
       }
     }
 
