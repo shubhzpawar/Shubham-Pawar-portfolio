@@ -5,17 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shubham Pawar | AI Engineer & Open Source Builder</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* Dark Mode Defaults */
-      --bg: #0d1117; /* deep dark background */
-      --card: #161b27; /* slightly lighter for cards */
-      --primary: #38bdf8; /* bright accent */
-      --text: #e5e7eb; /* light text */
-      --muted: #94a3b8; /* muted text */
+      --bg: #0d1117;
+      --card: #161b27;
+      --primary: #38bdf8;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
       --shadow: rgba(0, 0, 0, 0.5);
       --badge-bg: rgba(56,189,248,0.15);
     }
@@ -46,31 +44,94 @@
     h2{font-size:2rem;margin-top:60px;font-weight:600; color: var(--primary);}
     h3{font-size:1.4rem;font-weight:500;margin-bottom:10px;}
     p{color:var(--muted);margin-bottom:16px;}
-    a{color:var(--primary);text-decoration:none; transition: 0.2s;}
-    a:hover {opacity:0.8;}
 
-    .hero { display:flex; flex-wrap:wrap; align-items:center; gap:30px; margin-bottom:50px; }
-    .hero img { width:160px; height:160px; border-radius:50%; border:3px solid var(--primary); object-fit:cover; box-shadow:0 8px 20px var(--shadow); }
-
-    .badges span {
-      display:inline-block; background: var(--badge-bg); color:var(--primary);
-      padding:6px 14px; border-radius:999px; margin:6px 6px 0 0; font-size:14px; font-weight:500;
+    /* HERO */
+    .hero {
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:40px;
+      margin-bottom:50px;
     }
 
-    .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:24px; margin-top:30px; }
-    .card { background: var(--card); padding:28px; border-radius:16px; box-shadow:0 6px 20px var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; }
-    .card:hover { transform:translateY(-6px); box-shadow:0 14px 30px var(--shadow); }
+    /* 🔥 NEON PROFILE IMAGE */
+    .profile-wrapper {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-    /* CTA (Let’s Connect) */
+    .glow-bg {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(
+        circle,
+        rgba(56,189,248,0.9),
+        rgba(56,189,248,0.4),
+        transparent 70%
+      );
+      filter: blur(30px);
+      animation: pulse 4s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary);
+      z-index: 2;
+      box-shadow:
+        0 0 20px rgba(56,189,248,0.8),
+        0 0 60px rgba(56,189,248,0.6);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+
+    .badges span {
+      display:inline-block;
+      background: var(--badge-bg);
+      color:var(--primary);
+      padding:6px 14px;
+      border-radius:999px;
+      margin:6px 6px 0 0;
+      font-size:14px;
+      font-weight:500;
+    }
+
+    .cards {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+      gap:24px;
+      margin-top:30px;
+    }
+
+    .card {
+      background: var(--card);
+      padding:28px;
+      border-radius:16px;
+      box-shadow:0 6px 20px var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover { transform:translateY(-6px); }
+
     .cta {
       margin-top: 60px;
       padding: 50px;
       border-radius: 20px;
       background: var(--card);
-      color: var(--text);
       text-align: center;
       box-shadow: 0 6px 20px var(--shadow);
-      transition: background 0.5s ease, color 0.5s ease;
     }
 
     .cta a {
@@ -81,118 +142,95 @@
       padding: 14px 28px;
       border-radius: 12px;
       font-weight: 600;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
     }
 
-    .cta a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px var(--shadow);
-      opacity:0.9;
+    footer {
+      margin-top:80px;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
     }
 
-    footer { margin-top:80px; text-align:center; color:var(--muted); font-size:14px; }
-
-    ul { margin-left:20px; list-style-type:disc; margin-bottom:16px; }
-    ul li { margin-bottom:8px; }
-
-    /* Toggle Button */
     .toggle-btn {
-      position: fixed; top: 20px; right: 20px; z-index:1000;
-      padding:10px 16px; border-radius:8px; background: var(--card);
-      color:var(--primary); cursor:pointer; font-weight:600; border:none;
-      box-shadow:0 4px 12px var(--shadow); transition: background 0.3s, color 0.3s;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding:10px 16px;
+      border-radius:8px;
+      background: var(--card);
+      color:var(--primary);
+      cursor:pointer;
+      font-weight:600;
+      border:none;
       font-size:18px;
     }
-    .toggle-btn:hover { opacity:0.9; }
 
-    /* Responsive */
-    @media (max-width:900px) { h1{font-size:2.4rem;} h2{font-size:1.8rem;} h3{font-size:1.2rem;} .hero img{width:140px;height:140px;} }
-    @media (max-width:700px) { .hero { flex-direction:column; text-align:center; } .hero img { margin-bottom:20px; } }
-    @media (max-width:480px) { h1{font-size:2rem;} h2{font-size:1.6rem;} h3{font-size:1.1rem;} .cta{padding:35px 20px;} .cta a{padding:12px 22px;} .container{padding:30px 15px;} }
+    @media (max-width:700px) {
+      .hero { flex-direction:column; text-align:center; }
+    }
   </style>
 </head>
 
 <body>
-  <button class="toggle-btn" id="theme-toggle">🌙</button>
 
-  <div class="container">
+<button class="toggle-btn" id="theme-toggle">🌙</button>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div>
-        <img src="68F6E971-73A7-4662-9F57-A08E8F357C2C.png" alt="Shubham Pawar">
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="profile-wrapper">
+      <div class="glow-bg"></div>
+      <img src="your-photo.png" alt="Shubham Pawar" class="profile-img">
+    </div>
+
+    <div>
+      <h1>Shubham Pawar</h1>
+      <p>AI / DevOps Engineer · Open Source Builder · Co-founder of <strong>Hypertic.ai</strong></p>
+      <div class="badges">
+        <span>AI Agents</span>
+        <span>MCP</span>
+        <span>LLMs</span>
+        <span>Python</span>
+        <span>DevOps</span>
+        <span>Open Source</span>
       </div>
-      <div>
-        <h1>Shubham Pawar</h1>
-        <p>AI / DevOps Engineer · Open Source Builder · Co-founder of <strong>Hypertic.ai</strong></p>
-        <div class="badges">
-          <span>AI Agents</span>
-          <span>MCP</span>
-          <span>LLMs</span>
-          <span>Python</span>
-          <span>DevOps</span>
-          <span>Open Source</span>
-        </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <h2>About</h2>
+    <p>I build production-ready AI systems with a focus on developer experience and simplicity.</p>
+  </section>
+
+  <!-- PROJECT -->
+  <section>
+    <h2>Featured Project</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Hypertic.ai</h3>
+        <p>Lightweight open-source framework for building AI agents with MCP support.</p>
+        <p>
+          🔗 <a href="https://hypertic.ai" target="_blank">Website</a>
+        </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ABOUT -->
-    <section>
-      <h2>About</h2>
-      <p>I build practical, production-ready AI systems with a strong focus on developer experience. I enjoy simplifying complex architectures and creating tools that engineers actually enjoy using.</p>
-      <p>Currently, I’m building <strong>Hypertic.ai</strong> — a lightweight, open-source Python framework that helps developers build AI agents without heavy abstractions.</p>
-    </section>
+  <footer>
+    © 2026 Shubham Pawar · Built with passion
+  </footer>
 
-    <!-- EXPERIENCE -->
-    <section>
-      <h2>Experience</h2>
-      <p>4+ years of professional experience building and deploying cloud-native applications and DevOps pipelines. Skilled in:</p>
-      <ul>
-        <li>AWS (EC2, S3, Lambda, IAM, CloudFormation)</li>
-        <li>Terraform Infrastructure as Code</li>
-        <li>Docker & Kubernetes (K8s) deployments</li>
-        <li>Java & Spring Boot application development</li>
-        <li>CI/CD pipelines, automation, and cloud architecture</li>
-      </ul>
-    </section>
+</div>
 
-    <!-- PROJECTS -->
-    <section>
-      <h2>Featured Project</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Hypertic.ai</h3>
-          <p>A lightweight open-source framework for building AI agents with MCP support, tool calling, memory, and clean abstractions.</p>
-          <p>🔗 <a href="https://www.producthunt.com/products/hypertic-ai" target="_blank">Product Hunt</a> | 🌐 <a href="https://hypertic.ai" target="_blank">Visit Website</a></p>
-        </div>
-      </div>
-    </section>
+<script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    toggleBtn.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+  });
+</script>
 
-    <!-- CONNECT -->
-    <section class="cta">
-      <h2>Let’s Connect</h2>
-      <p>Interested in AI agents, open source, or developer tools?</p>
-      <a href="https://www.linkedin.com/in/shoobham-pawar" target="_blank">Connect on LinkedIn</a>
-    </section>
-
-    <footer>
-      © 2026 Shubham Pawar · Built with passion · Hosted on GitHub Pages
-    </footer>
-  </div>
-
-  <script>
-    const toggleBtn = document.getElementById('theme-toggle');
-
-    function toggleMode() {
-      document.body.classList.toggle('light-mode');
-      if(document.body.classList.contains('light-mode')) {
-        toggleBtn.textContent = '☀️'; // Sun icon
-      } else {
-        toggleBtn.textContent = '🌙'; // Moon icon
-      }
-    }
-
-    toggleBtn.addEventListener('click', toggleMode);
-  </script>
 </body>
 </html>
