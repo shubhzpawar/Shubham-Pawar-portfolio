@@ -4,198 +4,444 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shubham Pawar | AI Engineer & Open Source Builder</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* Dark Mode Defaults */
-      --bg: #0d1117; /* deep dark background */
-      --card: #161b27; /* slightly lighter for cards */
-      --primary: #38bdf8; /* bright accent */
-      --text: #e5e7eb; /* light text */
-      --muted: #94a3b8; /* muted text */
-      --shadow: rgba(0, 0, 0, 0.5);
-      --badge-bg: rgba(56,189,248,0.15);
+      --bg: #05070f;
+      --bg-soft: #0b1020;
+      --card: rgba(20, 26, 46, 0.72);
+      --text: #e9eefb;
+      --muted: #97a4c0;
+      --primary: #7dd3fc;
+      --primary-strong: #38bdf8;
+      --border: rgba(125, 211, 252, 0.2);
+      --shadow: 0 16px 40px rgba(3, 8, 20, 0.5);
+      --chip: rgba(125, 211, 252, 0.14);
     }
 
     body.light-mode {
-      --bg: #f5f5f5;
-      --card: #ffffff;
-      --primary: #3b82f6;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --shadow: rgba(0, 0, 0, 0.15);
-      --badge-bg: rgba(59,130,246,0.15);
+      --bg: #f6f8fc;
+      --bg-soft: #ffffff;
+      --card: rgba(255, 255, 255, 0.95);
+      --text: #111827;
+      --muted: #4b5563;
+      --primary: #2563eb;
+      --primary-strong: #1d4ed8;
+      --border: rgba(37, 99, 235, 0.2);
+      --shadow: 0 14px 30px rgba(17, 24, 39, 0.12);
+      --chip: rgba(37, 99, 235, 0.1);
     }
 
-    * { box-sizing: border-box; margin:0; padding:0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(1200px 700px at 0% -10%, rgba(56, 189, 248, 0.15), transparent 55%),
+        radial-gradient(1000px 600px at 100% 0%, rgba(29, 78, 216, 0.12), transparent 50%),
+        var(--bg);
       color: var(--text);
       line-height: 1.7;
-      transition: background 0.5s ease, color 0.5s ease;
+      transition: background 0.35s ease, color 0.35s ease;
     }
 
-    .container { max-width: 1000px; margin:auto; padding:40px 20px; }
-
-    h1{font-size:2.8rem;font-weight:700;margin-bottom:10px; color: var(--primary);}
-    h2{font-size:2rem;margin-top:60px;font-weight:600; color: var(--primary);}
-    h3{font-size:1.4rem;font-weight:500;margin-bottom:10px;}
-    p{color:var(--muted);margin-bottom:16px;}
-    a{color:var(--primary);text-decoration:none; transition: 0.2s;}
-    a:hover {opacity:0.8;}
-
-    .hero { display:flex; flex-wrap:wrap; align-items:center; gap:30px; margin-bottom:50px; }
-    .hero img { width:160px; height:160px; border-radius:50%; border:3px solid var(--primary); object-fit:cover; box-shadow:0 8px 20px var(--shadow); }
-
-    .badges span {
-      display:inline-block; background: var(--badge-bg); color:var(--primary);
-      padding:6px 14px; border-radius:999px; margin:6px 6px 0 0; font-size:14px; font-weight:500;
+    .container {
+      width: min(1100px, 92vw);
+      margin: 0 auto;
+      padding: 26px 0 64px;
     }
 
-    .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:24px; margin-top:30px; }
-    .card { background: var(--card); padding:28px; border-radius:16px; box-shadow:0 6px 20px var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; }
-    .card:hover { transform:translateY(-6px); box-shadow:0 14px 30px var(--shadow); }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      margin-bottom: 22px;
+      background: color-mix(in srgb, var(--bg-soft) 78%, transparent);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      box-shadow: var(--shadow);
+    }
 
-    /* CTA (Let’s Connect) */
-    .cta {
-      margin-top: 60px;
-      padding: 50px;
-      border-radius: 20px;
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      list-style: none;
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover { color: var(--text); }
+
+    .toggle-btn {
+      border: 1px solid var(--border);
       background: var(--card);
       color: var(--text);
-      text-align: center;
-      box-shadow: 0 6px 20px var(--shadow);
-      transition: background 0.5s ease, color 0.5s ease;
+      border-radius: 10px;
+      padding: 8px 11px;
+      cursor: pointer;
+      font-size: 16px;
     }
 
-    .cta a {
-      display: inline-block;
-      margin-top: 16px;
-      background: var(--primary);
-      color: #0d1117;
-      padding: 14px 28px;
-      border-radius: 12px;
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 26px;
+      align-items: center;
+      margin-bottom: 26px;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(145deg, var(--primary), transparent 60%, var(--primary-strong));
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--bg-soft);
+      background: var(--bg-soft);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4.8vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .headline {
+      color: var(--muted);
+      margin-bottom: 14px;
+      max-width: 680px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--chip);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
       font-weight: 600;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
     }
 
-    .cta a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px var(--shadow);
-      opacity:0.9;
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    footer { margin-top:80px; text-align:center; color:var(--muted); font-size:14px; }
-
-    ul { margin-left:20px; list-style-type:disc; margin-bottom:16px; }
-    ul li { margin-bottom:8px; }
-
-    /* Toggle Button */
-    .toggle-btn {
-      position: fixed; top: 20px; right: 20px; z-index:1000;
-      padding:10px 16px; border-radius:8px; background: var(--card);
-      color:var(--primary); cursor:pointer; font-weight:600; border:none;
-      box-shadow:0 4px 12px var(--shadow); transition: background 0.3s, color 0.3s;
-      font-size:18px;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      padding: 11px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      border: 1px solid transparent;
     }
-    .toggle-btn:hover { opacity:0.9; }
 
-    /* Responsive */
-    @media (max-width:900px) { h1{font-size:2.4rem;} h2{font-size:1.8rem;} h3{font-size:1.2rem;} .hero img{width:140px;height:140px;} }
-    @media (max-width:700px) { .hero { flex-direction:column; text-align:center; } .hero img { margin-bottom:20px; } }
-    @media (max-width:480px) { h1{font-size:2rem;} h2{font-size:1.6rem;} h3{font-size:1.1rem;} .cta{padding:35px 20px;} .cta a{padding:12px 22px;} .container{padding:30px 15px;} }
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--primary-strong), var(--primary));
+      color: #021019;
+    }
+
+    body.light-mode .btn-primary { color: #f8fbff; }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    section {
+      margin-top: 26px;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .span-6 { grid-column: span 6; }
+    .span-12 { grid-column: span 12; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    li {
+      color: var(--muted);
+      margin-bottom: 8px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      position: absolute;
+      left: 0;
+      top: 11px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      border-left: 2px solid var(--border);
+      padding-left: 14px;
+    }
+
+    .timeline-item small {
+      color: var(--primary);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+      }
+
+      .badges,
+      .cta-row {
+        justify-content: center;
+      }
+
+      .span-6 { grid-column: span 12; }
+
+      .nav {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container { padding-top: 14px; }
+      .panel { padding: 20px; }
+      .nav-links { gap: 10px; }
+      .nav a { font-size: 13px; }
+    }
   </style>
 </head>
-
 <body>
-  <button class="toggle-btn" id="theme-toggle">🌙</button>
-
   <div class="container">
-
-    <!-- HERO -->
-  <section class="hero">
-  <div class="profile-wrapper">
-    <div class="neon-shape"></div>
-    <div class="glow-ring"></div>
-    <img src="68F6E971-73A7-4662-9F57-A08E8F357C2C.png" alt="Shubham Pawar" class="profile-img">
-  </div>
-
-  <div>
-    <h1>Shubham Pawar</h1>
-    <p>AI / DevOps Engineer · Open Source Builder · Co-founder of <strong>Hypertic.ai</strong></p>
-    <div class="badges">
-      <span>AI Agents</span>
-      <span>MCP</span>
-      <span>LLMs</span>
-      <span>Python</span>
-      <span>DevOps</span>
-      <span>Open Source</span>
-    </div>
-  </div>
-</section>
-
-    <!-- ABOUT -->
-    <section>
-      <h2>About</h2>
-      <p>I build practical, production-ready AI systems with a strong focus on developer experience. I enjoy simplifying complex architectures and creating tools that engineers actually enjoy using.</p>
-      <p>Currently, I’m building <strong>Hypertic.ai</strong> — a lightweight, open-source Python framework that helps developers build AI agents without heavy abstractions.</p>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section>
-      <h2>Experience</h2>
-      <p>4+ years of professional experience building and deploying cloud-native applications and DevOps pipelines. Skilled in:</p>
-      <ul>
-        <li>AWS (EC2, S3, Lambda, IAM, CloudFormation)</li>
-        <li>Terraform Infrastructure as Code</li>
-        <li>Docker & Kubernetes (K8s) deployments</li>
-        <li>Java & Spring Boot application development</li>
-        <li>CI/CD pipelines, automation, and cloud architecture</li>
+    <nav class="nav">
+      <div class="brand">Shubham Pawar</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-    </section>
+      <button class="toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </nav>
 
-    <!-- PROJECTS -->
-    <section>
-      <h2>Featured Project</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Hypertic.ai</h3>
-          <p>A lightweight open-source framework for building AI agents with MCP support, tool calling, memory, and clean abstractions.</p>
-          <p>🔗 <a href="https://www.producthunt.com/products/hypertic-ai" target="_blank">Product Hunt</a> | 🌐 <a href="https://hypertic.dev" target="_blank">Visit Website</a></p>
+    <header class="panel hero">
+      <div class="avatar-wrap">
+        <img src="68F6E971-73A7-4662-9F57-A08E8F357C2C.png" alt="Shubham Pawar" class="avatar">
+      </div>
+      <div>
+        <h1>AI Engineer & Open Source Builder</h1>
+        <p class="headline">
+          I build production-ready AI systems and developer-first tooling. Co-founder of
+          <strong>Hypertic.ai</strong>, focused on practical agent frameworks with clean abstractions.
+        </p>
+        <div class="badges">
+          <span class="badge">AI Agents</span>
+          <span class="badge">MCP</span>
+          <span class="badge">LLMs</span>
+          <span class="badge">Python</span>
+          <span class="badge">DevOps</span>
+          <span class="badge">Open Source</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/shoobham-pawar" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+          <a class="btn btn-secondary" href="https://hypertic.dev" target="_blank" rel="noreferrer">Visit Hypertic.ai</a>
         </div>
       </div>
+    </header>
+
+    <section id="about" class="grid">
+      <article class="card span-12">
+        <h2 class="section-title">About</h2>
+        <p>
+          I focus on turning complex AI architecture into products developers can ship quickly.
+          My work blends AI engineering, system design, and DevOps to deliver stable, maintainable platforms.
+        </p>
+        <p>
+          At <strong>Hypertic.ai</strong>, I am building a lightweight open-source Python framework for AI agents
+          with tool calling, memory, and MCP support.
+        </p>
+      </article>
     </section>
 
-    <!-- CONNECT -->
-    <section class="cta">
-      <h2>Let’s Connect</h2>
-      <p>Interested in AI agents, open source, or developer tools?</p>
-      <a href="https://www.linkedin.com/in/shoobham-pawar" target="_blank">Connect on LinkedIn</a>
+    <section id="experience" class="grid">
+      <article class="card span-6">
+        <h2 class="section-title">Experience</h2>
+        <p>4+ years building cloud-native apps and automation systems across AI and DevOps.</p>
+        <ul>
+          <li>AWS (EC2, S3, Lambda, IAM, CloudFormation)</li>
+          <li>Terraform and infrastructure as code</li>
+          <li>Docker and Kubernetes deployments</li>
+          <li>Java and Spring Boot services</li>
+          <li>CI/CD, observability, and release automation</li>
+        </ul>
+      </article>
+      <article class="card span-6">
+        <h2 class="section-title">Journey</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <small>Now</small>
+            <p>Co-founding and building Hypertic.ai with focus on AI agent developer experience.</p>
+          </div>
+          <div class="timeline-item">
+            <small>Recent</small>
+            <p>Shipped practical AI tooling with MCP integrations and production-grade deployment pipelines.</p>
+          </div>
+          <div class="timeline-item">
+            <small>Earlier</small>
+            <p>Built backend and cloud systems with strong DevOps practices and scalable architecture.</p>
+          </div>
+        </div>
+      </article>
     </section>
 
-    <footer>
-      © 2026 Shubham Pawar · Built with passion · Hosted on GitHub Pages
+    <section id="projects" class="grid">
+      <article class="card span-12">
+        <h2 class="section-title">Featured Project</h2>
+        <h3>Hypertic.ai</h3>
+        <p>
+          A lightweight open-source framework for building AI agents with memory, tool calling,
+          and MCP support while keeping APIs clean and easy to reason about.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-secondary" href="https://www.producthunt.com/products/hypertic-ai" target="_blank" rel="noreferrer">Product Hunt</a>
+          <a class="btn btn-secondary" href="https://hypertic.dev" target="_blank" rel="noreferrer">Website</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="contact" class="panel" style="margin-top:26px; text-align:center;">
+      <h2 class="section-title">Let's Build Something Useful</h2>
+      <p>Open to collaboration around AI agents, open source, and developer tooling.</p>
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/shoobham-pawar" target="_blank" rel="noreferrer">Message on LinkedIn</a>
+    </section>
+
+    <footer class="footer">
+      © 2026 Shubham Pawar · Built with focus and curiosity
     </footer>
   </div>
 
   <script>
-    const toggleBtn = document.getElementById('theme-toggle');
+    const toggleBtn = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("portfolio-theme");
 
-    function toggleMode() {
-      document.body.classList.toggle('light-mode');
-      if(document.body.classList.contains('light-mode')) {
-        toggleBtn.textContent = '☀️'; // Sun icon
-      } else {
-        toggleBtn.textContent = '🌙'; // Moon icon
-      }
+    if (savedTheme === "light") {
+      document.body.classList.add("light-mode");
+      toggleBtn.textContent = "☀️";
     }
 
-    toggleBtn.addEventListener('click', toggleMode);
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      const isLight = document.body.classList.contains("light-mode");
+      toggleBtn.textContent = isLight ? "☀️" : "🌙";
+      localStorage.setItem("portfolio-theme", isLight ? "light" : "dark");
+    });
   </script>
 </body>
 </html>
