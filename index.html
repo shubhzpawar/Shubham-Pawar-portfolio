@@ -1,12 +1,15 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shubham Pawar | AI Engineer & Open Source Builder</title>
+  <title>Shubham Pawar | Salesforce Developer</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #05070f;
@@ -24,194 +27,209 @@
     body.light-mode {
       --bg: #f6f8fc;
       --bg-soft: #ffffff;
-      --card: rgba(255, 255, 255, 0.95);
+      --card: rgba(255,255,255,0.95);
       --text: #111827;
       --muted: #4b5563;
       --primary: #2563eb;
       --primary-strong: #1d4ed8;
-      --border: rgba(37, 99, 235, 0.2);
-      --shadow: 0 14px 30px rgba(17, 24, 39, 0.12);
-      --chip: rgba(37, 99, 235, 0.1);
+      --border: rgba(37,99,235,0.2);
+      --shadow: 0 14px 30px rgba(17,24,39,0.12);
+      --chip: rgba(37,99,235,0.1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      font-family: Inter, sans-serif;
       background:
-        radial-gradient(1200px 700px at 0% -10%, rgba(56, 189, 248, 0.15), transparent 55%),
-        radial-gradient(1000px 600px at 100% 0%, rgba(29, 78, 216, 0.12), transparent 50%),
+        radial-gradient(1200px 700px at 0% -10%, rgba(56,189,248,0.15), transparent 55%),
+        radial-gradient(1000px 600px at 100% 0%, rgba(29,78,216,0.12), transparent 50%),
         var(--bg);
       color: var(--text);
       line-height: 1.7;
-      transition: background 0.35s ease, color 0.35s ease;
+      transition: all .3s ease;
     }
 
     .container {
       width: min(1100px, 92vw);
-      margin: 0 auto;
-      padding: 26px 0 64px;
+      margin: auto;
+      padding: 24px 0 60px;
     }
 
     .nav {
       position: sticky;
       top: 0;
-      z-index: 20;
-      margin-bottom: 22px;
-      background: color-mix(in srgb, var(--bg-soft) 78%, transparent);
-      backdrop-filter: blur(10px);
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 14px;
+      backdrop-filter: blur(10px);
       box-shadow: var(--shadow);
     }
 
     .brand {
-      font-weight: 700;
-      letter-spacing: 0.2px;
+      font-weight: 800;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 14px;
+      gap: 16px;
       list-style: none;
     }
 
-    .nav a {
+    .nav-links a {
       color: var(--muted);
       text-decoration: none;
       font-size: 14px;
-      font-weight: 500;
-      transition: color 0.2s ease;
     }
 
-    .nav a:hover { color: var(--text); }
+    .nav-links a:hover {
+      color: var(--text);
+    }
 
     .toggle-btn {
-      border: 1px solid var(--border);
       background: var(--card);
       color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px 10px;
       border-radius: 10px;
-      padding: 8px 11px;
       cursor: pointer;
-      font-size: 16px;
+    }
+
+    .panel,
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
 
     .panel {
-      background: var(--card);
-      border: 1px solid var(--border);
       border-radius: 20px;
-      box-shadow: var(--shadow);
-      padding: 26px;
+      padding: 28px;
     }
 
     .hero {
       display: grid;
       grid-template-columns: 170px 1fr;
-      gap: 26px;
+      gap: 28px;
       align-items: center;
-      margin-bottom: 26px;
     }
 
     .avatar-wrap {
-      position: relative;
       width: 170px;
       height: 170px;
       border-radius: 50%;
       padding: 4px;
-      background: linear-gradient(145deg, var(--primary), transparent 60%, var(--primary-strong));
+      background: linear-gradient(135deg,var(--primary),transparent,var(--primary-strong));
     }
 
     .avatar {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
       object-fit: cover;
+      border-radius: 50%;
       border: 3px solid var(--bg-soft);
-      background: var(--bg-soft);
     }
 
     h1 {
-      font-size: clamp(2rem, 4.8vw, 3.2rem);
-      line-height: 1.1;
+      font-size: clamp(2rem,5vw,3.3rem);
       margin-bottom: 10px;
-      letter-spacing: -0.03em;
+      line-height: 1.1;
     }
 
     .headline {
       color: var(--muted);
-      margin-bottom: 14px;
-      max-width: 680px;
+      max-width: 700px;
+      margin-bottom: 16px;
     }
 
     .badges {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--chip);
-      border: 1px solid var(--border);
-      color: var(--primary);
       padding: 6px 12px;
       border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--chip);
+      color: var(--primary);
       font-size: 13px;
       font-weight: 600;
     }
 
-    .cta-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
     .btn {
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 12px;
       padding: 11px 16px;
-      font-size: 14px;
+      border-radius: 12px;
       font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-      border: 1px solid transparent;
+      transition: .2s;
     }
 
-    .btn:hover { transform: translateY(-1px); }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
 
     .btn-primary {
-      background: linear-gradient(120deg, var(--primary-strong), var(--primary));
+      background: linear-gradient(120deg,var(--primary-strong),var(--primary));
       color: #021019;
     }
 
-    body.light-mode .btn-primary { color: #f8fbff; }
-
     .btn-secondary {
-      background: transparent;
+      border: 1px solid var(--border);
       color: var(--text);
-      border-color: var(--border);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     section {
       margin-top: 26px;
     }
 
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12,1fr);
+      gap: 16px;
+    }
+
+    .span-12 {
+      grid-column: span 12;
+    }
+
+    .span-6 {
+      grid-column: span 6;
+    }
+
+    .card {
+      border-radius: 16px;
+      padding: 22px;
+    }
+
     .section-title {
-      font-size: 1.6rem;
       margin-bottom: 14px;
-      letter-spacing: -0.02em;
+      font-size: 1.6rem;
     }
 
     p {
@@ -219,38 +237,15 @@
       margin-bottom: 12px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-    }
-
-    .span-6 { grid-column: span 6; }
-    .span-12 { grid-column: span 12; }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      font-size: 1.15rem;
-      margin-bottom: 8px;
-    }
-
     ul {
       list-style: none;
-      margin-top: 10px;
     }
 
     li {
-      color: var(--muted);
-      margin-bottom: 8px;
-      padding-left: 16px;
       position: relative;
+      padding-left: 16px;
+      margin-bottom: 8px;
+      color: var(--muted);
     }
 
     li::before {
@@ -261,187 +256,305 @@
       background: var(--primary);
       position: absolute;
       left: 0;
-      top: 11px;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 12px;
+      top: 12px;
     }
 
     .timeline-item {
       border-left: 2px solid var(--border);
       padding-left: 14px;
+      margin-bottom: 14px;
     }
 
     .timeline-item small {
       color: var(--primary);
-      font-weight: 600;
-      display: block;
-      margin-bottom: 4px;
+      font-weight: 700;
     }
 
     .footer {
-      margin-top: 40px;
       text-align: center;
-      color: var(--muted);
-      font-size: 13px;
+      margin-top: 40px;
+      padding-top: 20px;
       border-top: 1px solid var(--border);
-      padding-top: 18px;
+      color: var(--muted);
     }
 
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        justify-items: center;
+    @media(max-width:900px){
+      .hero{
+        grid-template-columns:1fr;
+        text-align:center;
       }
 
       .badges,
-      .cta-row {
-        justify-content: center;
+      .cta-row{
+        justify-content:center;
       }
 
-      .span-6 { grid-column: span 12; }
-
-      .nav {
-        flex-wrap: wrap;
-        gap: 10px;
+      .span-6{
+        grid-column:span 12;
       }
-    }
-
-    @media (max-width: 560px) {
-      .container { padding-top: 14px; }
-      .panel { padding: 20px; }
-      .nav-links { gap: 10px; }
-      .nav a { font-size: 13px; }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <nav class="nav">
-      <div class="brand">Shubham Pawar</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+
+<div class="container">
+
+  <nav class="nav">
+    <div class="brand">Shubham Pawar</div>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="toggle-btn" id="theme-toggle">🌙</button>
+  </nav>
+
+  <header class="panel hero">
+
+    <div class="avatar-wrap">
+      <img src="68F6E971-73A7-4662-9F57-A08E8F357C2C.png"
+           alt="Shubham Pawar"
+           class="avatar">
+    </div>
+
+    <div>
+      <h1>Salesforce Developer</h1>
+
+      <p class="headline">
+        Salesforce professional with 4+ years of experience designing and building
+        enterprise CRM solutions using Apex, Lightning Web Components (LWC),
+        integrations, automation, and Salesforce platform best practices.
+      </p>
+
+      <div class="badges">
+        <span class="badge">Salesforce</span>
+        <span class="badge">Apex</span>
+        <span class="badge">LWC</span>
+        <span class="badge">API Integration</span>
+        <span class="badge">Sales Cloud</span>
+        <span class="badge">Service Cloud</span>
+        <span class="badge">Experience Cloud</span>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary"
+           href="https://www.linkedin.com/in/shoobham-pawar"
+           target="_blank">
+          Connect on LinkedIn
+        </a>
+
+        <a class="btn btn-secondary"
+           href="#contact">
+          Contact Me
+        </a>
+      </div>
+    </div>
+
+  </header>
+
+  <section id="about" class="grid">
+    <article class="card span-12">
+      <h2 class="section-title">About</h2>
+
+      <p>
+        I specialize in developing scalable Salesforce applications that improve
+        business processes, automate operations, and create exceptional user experiences.
+      </p>
+
+      <p>
+        My expertise includes Apex development, Lightning Web Components,
+        REST/SOAP integrations, Flow automation, security implementation,
+        deployment management, and CRM transformation projects.
+      </p>
+    </article>
+  </section>
+
+  <section id="experience" class="grid">
+
+    <article class="card span-6">
+      <h2 class="section-title">Experience</h2>
+
+      <p>
+        4+ years of experience delivering Salesforce solutions across enterprise environments.
+      </p>
+
+      <ul>
+        <li>Apex Classes, Triggers & Batch Apex</li>
+        <li>Lightning Web Components (LWC)</li>
+        <li>Aura Components</li>
+        <li>REST & SOAP API Integrations</li>
+        <li>Sales Cloud & Service Cloud</li>
+        <li>Experience Cloud Development</li>
+        <li>Flow Automation & Approval Processes</li>
+        <li>Security & Sharing Model</li>
+        <li>Deployment & Release Management</li>
       </ul>
-      <button class="toggle-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
-    </nav>
+    </article>
 
-    <header class="panel hero">
-      <div class="avatar-wrap">
-        <img src="68F6E971-73A7-4662-9F57-A08E8F357C2C.png" alt="Shubham Pawar" class="avatar">
+    <article class="card span-6">
+      <h2 class="section-title">Career Journey</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <small>Present</small>
+          <p>
+            Building enterprise Salesforce applications using Apex, LWC,
+            integrations, and scalable architecture patterns.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <small>Recent</small>
+          <p>
+            Delivered CRM modernization initiatives with third-party integrations
+            and automated business workflows.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <small>Earlier</small>
+          <p>
+            Developed custom Salesforce solutions focused on process automation,
+            reporting, and platform customization.
+          </p>
+        </div>
       </div>
-      <div>
-        <h1>AI Engineer & Open Source Builder</h1>
-        <p class="headline">
-          I build production-ready AI systems and developer-first tooling. Co-founder of
-          <strong>Hypertic.ai</strong>, focused on practical agent frameworks with clean abstractions.
-        </p>
-        <div class="badges">
-          <span class="badge">AI Agents</span>
-          <span class="badge">MCP</span>
-          <span class="badge">LLMs</span>
-          <span class="badge">Python</span>
-          <span class="badge">DevOps</span>
-          <span class="badge">Open Source</span>
-        </div>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://www.linkedin.com/in/shoobham-pawar" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
-          <a class="btn btn-secondary" href="https://hypertic.dev" target="_blank" rel="noreferrer">Visit Hypertic.ai</a>
-        </div>
-      </div>
-    </header>
+    </article>
 
-    <section id="about" class="grid">
-      <article class="card span-12">
-        <h2 class="section-title">About</h2>
-        <p>
-          I focus on turning complex AI architecture into products developers can ship quickly.
-          My work blends AI engineering, system design, and DevOps to deliver stable, maintainable platforms.
-        </p>
-        <p>
-          At <strong>Hypertic.ai</strong>, I am building a lightweight open-source Python framework for AI agents
-          with tool calling, memory, and MCP support.
-        </p>
-      </article>
-    </section>
+  </section>
 
-    <section id="experience" class="grid">
-      <article class="card span-6">
-        <h2 class="section-title">Experience</h2>
-        <p>4+ years building cloud-native apps and automation systems across AI and DevOps.</p>
-        <ul>
-          <li>AWS (EC2, S3, Lambda, IAM, CloudFormation)</li>
-          <li>Terraform and infrastructure as code</li>
-          <li>Docker and Kubernetes deployments</li>
-          <li>Java and Spring Boot services</li>
-          <li>CI/CD, observability, and release automation</li>
-        </ul>
-      </article>
-      <article class="card span-6">
-        <h2 class="section-title">Journey</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <small>Now</small>
-            <p>Co-founding and building Hypertic.ai with focus on AI agent developer experience.</p>
-          </div>
-          <div class="timeline-item">
-            <small>Recent</small>
-            <p>Shipped practical AI tooling with MCP integrations and production-grade deployment pipelines.</p>
-          </div>
-          <div class="timeline-item">
-            <small>Earlier</small>
-            <p>Built backend and cloud systems with strong DevOps practices and scalable architecture.</p>
-          </div>
-        </div>
-      </article>
-    </section>
+  <section id="skills" class="grid">
 
-    <section id="projects" class="grid">
-      <article class="card span-12">
-        <h2 class="section-title">Featured Project</h2>
-        <h3>Hypertic.ai</h3>
-        <p>
-          A lightweight open-source framework for building AI agents with memory, tool calling,
-          and MCP support while keeping APIs clean and easy to reason about.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-secondary" href="https://www.producthunt.com/products/hypertic-ai" target="_blank" rel="noreferrer">Product Hunt</a>
-          <a class="btn btn-secondary" href="https://hypertic.dev" target="_blank" rel="noreferrer">Website</a>
-        </div>
-      </article>
-    </section>
+    <article class="card span-6">
+      <h2 class="section-title">Technical Skills</h2>
 
-    <section id="contact" class="panel" style="margin-top:26px; text-align:center;">
-      <h2 class="section-title">Let's Build Something Useful</h2>
-      <p>Open to collaboration around AI agents, open source, and developer tooling.</p>
-      <a class="btn btn-primary" href="https://www.linkedin.com/in/shoobham-pawar" target="_blank" rel="noreferrer">Message on LinkedIn</a>
-    </section>
+      <ul>
+        <li>Apex Programming</li>
+        <li>Lightning Web Components (LWC)</li>
+        <li>SOQL & SOSL</li>
+        <li>Visualforce</li>
+        <li>Aura Framework</li>
+        <li>JavaScript, HTML, CSS</li>
+        <li>REST & SOAP APIs</li>
+        <li>Git & Version Control</li>
+      </ul>
+    </article>
 
-    <footer class="footer">
-      © 2026 Shubham Pawar · Built with focus and curiosity
-    </footer>
-  </div>
+    <article class="card span-6">
+      <h2 class="section-title">Salesforce Expertise</h2>
 
-  <script>
-    const toggleBtn = document.getElementById("theme-toggle");
-    const savedTheme = localStorage.getItem("portfolio-theme");
+      <ul>
+        <li>Sales Cloud</li>
+        <li>Service Cloud</li>
+        <li>Experience Cloud</li>
+        <li>Flow Builder</li>
+        <li>Security & Sharing</li>
+        <li>Reports & Dashboards</li>
+        <li>Data Migration</li>
+        <li>Release Management</li>
+      </ul>
+    </article>
 
-    if (savedTheme === "light") {
-      document.body.classList.add("light-mode");
-      toggleBtn.textContent = "☀️";
-    }
+  </section>
 
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      const isLight = document.body.classList.contains("light-mode");
-      toggleBtn.textContent = isLight ? "☀️" : "🌙";
-      localStorage.setItem("portfolio-theme", isLight ? "light" : "dark");
-    });
-  </script>
+  <section id="projects" class="grid">
+    <article class="card span-12">
+
+      <h2 class="section-title">Featured Projects</h2>
+
+      <h3>Customer Service Automation Platform</h3>
+
+      <p>
+        Built Salesforce Service Cloud solutions integrating external systems
+        through REST APIs, automating case management workflows,
+        notifications, and customer support operations.
+      </p>
+
+      <h3 style="margin-top:20px;">Sales Process Optimization</h3>
+
+      <p>
+        Developed custom Lightning Web Components, Apex services,
+        and automation workflows to improve sales productivity
+        and reporting visibility.
+      </p>
+
+    </article>
+  </section>
+
+  <section id="certifications" class="grid">
+
+    <article class="card span-12">
+      <h2 class="section-title">Certifications</h2>
+
+      <ul>
+        <li>Salesforce Certified Administrator</li>
+        <li>Salesforce Platform Developer I</li>
+        <li>Salesforce Platform App Builder</li>
+        <li>Salesforce JavaScript Developer I</li>
+        <li>Salesforce Platform Developer II (Optional)</li>
+      </ul>
+
+      <p style="margin-top:12px;">
+        Replace the above certifications with your actual certifications.
+      </p>
+    </article>
+
+  </section>
+
+  <section id="contact" class="panel" style="margin-top:26px;text-align:center;">
+
+    <h2 class="section-title">
+      Let's Build Better Salesforce Solutions
+    </h2>
+
+    <p>
+      Open to Salesforce development, CRM transformation,
+      integrations, automation initiatives, and consulting opportunities.
+    </p>
+
+    <a class="btn btn-primary"
+       href="https://www.linkedin.com/in/shoobham-pawar"
+       target="_blank">
+      Message on LinkedIn
+    </a>
+
+  </section>
+
+  <footer class="footer">
+    © 2026 Shubham Pawar · Salesforce Developer Portfolio
+  </footer>
+
+</div>
+
+<script>
+const toggleBtn = document.getElementById("theme-toggle");
+const savedTheme = localStorage.getItem("portfolio-theme");
+
+if(savedTheme === "light"){
+  document.body.classList.add("light-mode");
+  toggleBtn.textContent = "☀️";
+}
+
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+
+  const isLight = document.body.classList.contains("light-mode");
+
+  toggleBtn.textContent = isLight ? "☀️" : "🌙";
+
+  localStorage.setItem(
+    "portfolio-theme",
+    isLight ? "light" : "dark"
+  );
+});
+</script>
+
 </body>
 </html>
+```
